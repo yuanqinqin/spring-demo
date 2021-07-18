@@ -39,7 +39,7 @@ public class SpringMain {
         person.setSex(false);
         personDao.insertPerson(person);*/
 
-        Student student = applicationContext.getBean(Student.class);
+        /*Student student = applicationContext.getBean(Student.class);
         Teacher teacher = student.getTeacher();
         System.out.println(teacher.getName());
 
@@ -47,7 +47,20 @@ public class SpringMain {
         Student student2 = new Student();
         student2.setName("张三");
         student2.setAge(20);
-        studentDao.insertStudent(student2);
+        studentDao.insertStudent(student2);*/
+
+        PersonDao personDao = applicationContext.getBean(PersonDao.class);
+//        Person person1 = personDao.getByName("caroline");
+//        Person person2 = personDao.selectPerson(9);
+//        System.out.println("用户姓名为：" + person1.getUserName());
+//        personDao.deleteByName("caroline");
+        int i = personDao.updateByName("machine","111");
+        System.out.println("更新结果：" + i);
+
+
+
+
+
 
 
 

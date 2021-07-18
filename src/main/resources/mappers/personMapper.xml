@@ -4,4 +4,26 @@
     <insert id="insertPerson" parameterType="yuanqin.spring.Person">
         insert into person value (null,#{userName},#{passWord},#{name},#{sex},#{country},#{age})
     </insert>
+    <select id="selectPerson" resultType="yuanqin.spring.Person">
+        select * from person where id = #{abc}
+    </select>
+
+    <select id="getByName" resultType="yuanqin.spring.Person">
+        select * from person where  username = #{name}
+    </select>
+
+    <delete id="deleteByName">
+        delete from person where username = #{name}
+    </delete>
+
+    <update id="updateByName" >
+        update person set password = #{password} where username = #{name}
+    </update>
+
+    <insert id="insertPersonList" parameterType="yuanqin.spring.Person">
+        insert into person(username, password, sex) values
+        <foreach collection="list" open="(" close=")" separator="," item="per">
+            #{per.userName}, #{per.passWord}, #{per.sex}
+        </foreach>
+    </insert>
 </mapper>
